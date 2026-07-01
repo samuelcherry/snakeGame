@@ -146,7 +146,7 @@ function App() {
         </div>
       )}
       <main className="min-h-screen flex flex-col items-center justify-center gap-8">
-        <div className="mb-4 text-center font-mono text-3xl font-bold tracking-widest text-green-400">
+        <div className=" text-center font-mono text-3xl font-bold tracking-widest text-green-400">
           SCORE: {score.toString().padStart(4, "0")}
         </div>
         <Board
