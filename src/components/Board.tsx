@@ -4,9 +4,10 @@ interface BoardProps {
   width: number;
   height: number;
   snake: Position[];
+  food: Position;
 }
 
-const Board = ({ width, height, snake }: BoardProps) => {
+const Board = ({ width, height, snake, food }: BoardProps) => {
   const cells = [];
 
   for (let y = 0; y < height; y++) {
@@ -26,12 +27,17 @@ const Board = ({ width, height, snake }: BoardProps) => {
         const isSnake = snake.some(
           (segment) => segment.x === cell.x && segment.y === cell.y,
         );
+
+        const isFood = food.x === cell.x && food.y === cell.y;
+
         return (
           <div
             key={`${cell.x}-${cell.y}`}
-            className={`aspect-square border border-gray-700 ${
-              isSnake ? "bg-green-500" : "bg-gray-900"
-            }`}
+            className={`
+              w-4 h-4 border
+              ${isSnake ? "bg-green-500" : ""}
+              ${isFood ? "bg-red-500" : ""}
+              `}
           />
         );
       })}
